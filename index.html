@@ -3,9 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#11243a">
+<meta name="theme-color" content="#f6f7f9">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Aula UNED C2">
+<meta name="format-detection" content="telephone=no">
 <meta name="description" content="Preparación de oposiciones UNED C2: banco de preguntas revisado, tests por tema, simulacros de 65 minutos y cuaderno de errores.">
-<title>UNED C2 | Aula de preparación · Octubre 2026</title>
+<title>Aula UNED C2 · Estudio, Tests y Simulacros</title>
 <style>
 :root{color-scheme:light;--navy:#11243a;--navy2:#183650;--ink:#202d3c;--muted:#5e6d7a;--line:#dbe3e9;--paper:#f5f7f9;--white:#fff;--gold:#bb873d;--gold-light:#fcf4e6;--blue:#276386;--blue-soft:#edf5f9;--green:#246849;--green-soft:#e8f3ec;--red:#a14440;--red-soft:#f9ecea;--radius:17px;--shadow:0 7px 25px rgba(17,36,58,.055)}
 *{box-sizing:border-box}
@@ -96,63 +100,291 @@ h1,h2,h3{line-height:1.18;letter-spacing:-.02em}h1{font:700 clamp(30px,4vw,46px)
 .areas-tag{border-radius:999px;background:#edf5f9;color:#29536f;font-size:11px;padding:6px 9px}
 </style>
 <style>.audit-notice{border-left:4px solid #bb873d;background:#fff8e9;border-radius:10px;padding:14px 17px;margin:0 0 18px;font-size:12px;line-height:1.55;color:#594722}.audit-notice strong{font-size:13px;color:#48330e}.audit-notice p{margin:4px 0 0}.audit-disclaimer{color:#77512c!important;font-size:12px!important}.audit-level{display:block;color:#65758b;font-size:11px;padding-top:6px}</style>
+<style>
+
+/* iPhone 15 + iPad: interfaz de estudio simplificada. */
+:root { --paper:#f6f7f9; --navy:#142b43; --gold:#c29b51; --line:#e1e7ec; }
+html { scroll-padding-top:80px; }
+body { min-width:0; overflow-x:hidden; -webkit-tap-highlight-color:transparent; }
+button, input, select { -webkit-tap-highlight-color:transparent; touch-action:manipulation; }
+.btn:disabled,.answer:disabled { opacity:.55; }
+.sr-only { position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap; }
+.app { grid-template-columns:205px minmax(0,1fr); }
+.sidebar { padding:23px 12px; }
+.sidebar .brand { margin:4px 8px 23px; }
+.sidebar .brand-icon { width:39px;height:39px; }
+.sidebar .side-cap { margin:0 10px 10px; }
+.sidebar .nav-btn { min-height:46px;font-size:14px; }
+.side-section { border-top:1px solid #354e65;margin:14px 6px 0;padding:12px 5px 0; }
+.side-section summary { color:#c5d4e1;font-size:12px;font-weight:700;padding:9px 8px;cursor:pointer; }
+.side-section .side-topic { font-size:11.5px;line-height:1.35;min-height:43px; }
+.sidebar-bottom { margin-top:20px;border:0;background:transparent;padding:7px 12px;color:#8ba8be; }
+.main { max-width:1440px;padding:23px clamp(22px,4vw,52px) 65px; }
+.topbar { min-height:51px;margin-bottom:23px;padding-bottom:9px;border-bottom:1px solid var(--line); }
+.topbar-left { display:flex;align-items:center;gap:10px; }
+.top-title { color:var(--navy);font-size:17px;font-weight:800;letter-spacing:-.3px; }
+.top-logo { display:none;place-items:center;width:33px;height:33px;border-radius:10px;background:var(--navy);color:#fff;font-weight:800;font-size:13px; }
+.top-meta { flex-wrap:nowrap;gap:9px; }
+.edition { border:0;background:transparent;color:var(--muted);font-size:11px;font-weight:700;padding:4px; }
+.top-export { display:grid;place-items:center;width:42px;height:42px;background:#fff;border:1px solid var(--line);border-radius:12px;color:var(--navy);font-size:25px;font-weight:600; }
+.mobile-menu { display:none!important; }
+.view { max-width:1150px; }
+h1 { font:700 clamp(25px,2.8vw,34px)/1.17 Georgia,serif;margin-bottom:6px; }
+h2 { font-size:19px; }
+.lead { font-size:13px;margin-bottom:14px;line-height:1.5; }
+.hero { background:linear-gradient(120deg,#17334b,#214663);border-radius:19px;padding:23px 26px;margin-bottom:14px;box-shadow:none; }
+.hero:after { width:170px;height:170px;right:-65px;top:-80px; }
+.hero .eyebrow { font-size:10px;letter-spacing:1.4px;margin-bottom:5px; }
+.hero h1 { color:white;font-size:clamp(25px,3vw,35px);line-height:1.15;margin-bottom:0; }
+.hero-actions { margin-top:16px;gap:8px; }
+.hero-actions .btn { min-height:43px;padding:10px 14px;font-size:13px; }
+.grid4 { grid-template-columns:repeat(3,minmax(0,1fr));gap:9px; }
+.metric { padding:13px 15px;border-radius:13px;box-shadow:none; }
+.metric .value { font-size:27px; }
+.metric .name { font-size:10px; }
+.metric .hint { font-size:10px;line-height:1.35; }
+.section-heading { margin:23px 0 11px; }
+.section-heading h2 { font-size:20px; }
+.home-filters { display:flex;gap:7px;margin:0 0 12px; }
+.home-filter { min-height:43px;padding:9px 15px;background:#fff;color:#536477;border:1px solid var(--line);border-radius:11px;font-size:13px;font-weight:750; }
+.home-filter.active { background:var(--navy);border-color:var(--navy);color:#fff; }
+.topic-grid { grid-template-columns:repeat(2,minmax(0,1fr));gap:9px; }
+.topic-card { min-width:0;padding:14px;gap:10px;box-shadow:none; }
+.topic-card[hidden] { display:none!important; }
+.topic-card .topic-label { font-size:13px;line-height:1.38; }
+.topic-card .topic-sub { margin-top:4px;font-size:11px; }
+.topic-open-actions { display:flex;gap:5px; }
+.topic-open-actions .mini-test-link,.topic-card .topic-open { width:auto;height:auto;min-height:43px;border-radius:9px;padding:9px 11px;font-size:11px;font-weight:750; }
+.topic-card .topic-open { background:var(--navy);color:#fff;border-color:var(--navy); }
+.more-info { margin:19px 0;background:#fff;border:1px solid var(--line);padding:14px 17px;border-radius:13px; }
+.more-info summary { cursor:pointer;font-size:13px;font-weight:750;color:var(--navy); }
+.more-info .legal-note { font-size:12px;color:var(--muted);margin:12px 0; }
+.note-grid { margin-top:12px; }
+.note { padding:13px;border-radius:9px; }
+.toolbar { margin:12px 0;padding:13px;border-radius:13px;box-shadow:none; }
+.toolbar-row { align-items:end; }
+.field label { font-size:12px; }
+.field select,.field input { min-height:46px;font-size:16px; }
+.search-details { margin:11px 0 0; }
+.search-details summary { color:var(--muted);font-weight:700;font-size:12px;cursor:pointer; }
+.search-details input { display:block;width:100%;margin-top:10px;padding:11px;border:1px solid var(--line);border-radius:10px;font-size:16px; }
+.mini-help { color:#6c7b88;font-size:11px;margin-top:7px; }
+.q-card { box-shadow:none;border-radius:16px;padding:20px; }
+.q-top { margin-bottom:10px; }
+.q-text { font-size:clamp(18px,2.2vw,22px);line-height:1.48;margin-bottom:16px; }
+.q-context { gap:6px; }
+.q-context .chip-neutral { max-width:min(65vw,360px);overflow:hidden;text-overflow:ellipsis;white-space:nowrap; }
+.answer { width:100%;min-height:56px;font-size:15px;line-height:1.42;padding:13px 14px;border-radius:12px;align-items:center; }
+.answer .letter { flex:0 0 30px;width:30px;height:30px;border-radius:9px; }
+.feedback { margin-top:13px;padding:14px; }
+.feedback p { font-size:13px; }
+.feedback small { display:block;margin-top:8px; }
+.action-line { margin-top:9px; }
+#practiceActions { background:rgba(246,247,249,.96);backdrop-filter:blur(12px);padding:9px 0;position:sticky;bottom:9px;z-index:8; }
+#practiceActions .action-inline { gap:7px; }
+#practiceActions .btn { min-height:46px; }
+.variant-grid { grid-template-columns:repeat(3,minmax(0,1fr));gap:8px; }
+.variant-choice { min-height:0!important;padding:13px;gap:5px;border-radius:13px;box-shadow:none; }
+.variant-choice .variant-number { font-size:20px; }
+.variant-choice .variant-title { font-size:13px; }
+.variant-choice .variant-status { font-size:11px; }
+.variant-sub { display:none!important; }
+.random-toolbar { margin-top:13px; }
+.coverage-map { padding:12px 15px;margin-bottom:12px; }
+.test-in-progress #testVariants,.test-in-progress #coverageMap,.test-in-progress .random-toolbar{display:none!important;}
+.switch-test{border:0;background:transparent;padding:7px 1px;color:var(--blue);font-weight:750;font-size:12px;min-height:37px;}
+.test-step { display:flex;justify-content:space-between;align-items:center;gap:10px;margin:21px 0 9px;font-size:14px; }
+.test-track { margin-bottom:11px;height:6px; }
+.test-palette { display:flex;gap:6px;overflow-x:auto;scrollbar-width:thin;padding:5px 0 11px;margin-bottom:5px;scroll-snap-type:x proximity; }
+.test-jump { flex:0 0 37px;width:37px;height:37px;border:1px solid #d9e2e9;border-radius:10px;background:#fff;color:#607181;font-size:13px;font-weight:750;scroll-snap-align:center; }
+.test-jump.answered { background:#dceff0;border-color:#b2d8d2;color:#1c6255; }
+.test-jump.current { background:var(--navy);color:#fff;border-color:var(--navy); }
+.test-step-actions { display:flex;justify-content:space-between;gap:10px;padding:11px 0;position:sticky;bottom:8px;background:rgba(246,247,249,.95);backdrop-filter:blur(11px);z-index:8; }
+.test-step-actions .btn { min-height:49px;flex:1; }
+.test-finish-link { display:block;margin:13px auto 23px;min-height:40px;border:0;background:transparent;color:var(--muted);font-size:12px;text-decoration:underline; }
+.clear-choice { display:block;margin:-6px 0 6px auto;border:0;background:transparent;padding:8px 12px;color:#6a7582;font-size:12px;text-decoration:underline;min-height:38px; }
+#testWorkspace { scroll-margin-top:74px; }
+.exam-intro { margin-top:12px;padding:20px; }
+.exam-intro ul { margin:13px 0;padding-left:19px;line-height:1.65; }
+.exam-nav { margin:0 0 15px; }
+.exam-nav>summary { padding:12px 14px;border:1px solid var(--line);border-radius:11px;background:#fff;font-size:13px;font-weight:750;cursor:pointer; }
+.exam-nav[open]>summary { border-bottom-left-radius:0;border-bottom-right-radius:0; }
+.exam-palette { margin:0;padding:11px;grid-template-columns:repeat(13,minmax(0,1fr)); }
+.exam-jump { min-height:36px; }
+.exam-banner { padding:10px 14px;position:sticky;top:8px;z-index:7;background:#fff;box-shadow:0 6px 16px rgba(17,36,58,.08); }
+.exam-timer { font-size:22px; }
+.sticky-actions { border:0;box-shadow:none;border-radius:0;margin:8px 0;background:rgba(246,247,249,.96);padding:9px 0; }
+.sticky-actions .btn { min-height:44px; }
+#examWorkspace .sticky-actions { justify-content:space-between; }
+#examWorkspace .sticky-actions .action-inline { display:flex;gap:7px; }
+.danger-zone { margin:13px 0 0;padding:6px 0; }
+.danger-zone summary { color:var(--muted);font-weight:650;font-size:12px;cursor:pointer; }
+.danger-zone .btn { margin-top:11px; }
+.result { box-shadow:none;border-radius:13px; }
+.review-item summary { padding:13px;min-height:45px; }
+.footer { margin-top:30px; }
+.toast { bottom:28px; }
+.bottom-nav { display:none; }
+@media(min-width:1194px) { .sidebar { display:block; } }
+@media (max-width:1193px) {
+  html { scroll-padding-top:76px; }
+  .app { display:block!important;min-height:100dvh; }
+  .sidebar { display:none!important; }
+  .main { max-width:960px;padding:0 23px calc(105px + env(safe-area-inset-bottom));margin:0 auto; }
+  .topbar { position:sticky;top:0;z-index:25;padding:calc(8px + env(safe-area-inset-top)) 0 9px;background:rgba(246,247,249,.94);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);margin:0 0 13px;min-height:56px; }
+  .top-logo { display:grid; }
+  .edition { font-size:11px; }
+  .bottom-nav { display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;bottom:0;left:0;right:0;z-index:30;background:rgba(255,255,255,.97);border-top:1px solid #dfe5ea;box-shadow:0 -5px 20px rgba(21,39,58,.06);padding:7px max(8px,env(safe-area-inset-left)) calc(5px + env(safe-area-inset-bottom)) max(8px,env(safe-area-inset-right)); }
+  .bottom-item { min-height:56px;padding:5px 2px 4px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:0;border-radius:11px;background:transparent;color:#6a7b8b;font-size:10px;font-weight:740;white-space:nowrap; }
+  .bottom-item svg { width:23px;height:23px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round; }
+  .bottom-item.active { background:#e9f1f6;color:#174262; }
+  .bottom-item.active svg { stroke-width:2.35; }
+  #practiceActions,.test-step-actions,#examWorkspace .sticky-actions { bottom:calc(78px + env(safe-area-inset-bottom)); }
+  .toast { bottom:calc(90px + env(safe-area-inset-bottom));right:15px;left:15px;width:fit-content;max-width:calc(100vw - 30px);margin:0 auto; }
+  .exam-banner { top:calc(63px + env(safe-area-inset-top)); }
+}
+@media (min-width:700px) and (max-width:1193px) {
+  .main { padding-left:clamp(28px,6vw,58px);padding-right:clamp(28px,6vw,58px); }
+  .variant-grid { grid-template-columns:repeat(3,minmax(0,1fr)); }
+  .topic-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .bottom-nav { padding-left:max(8vw,env(safe-area-inset-left));padding-right:max(8vw,env(safe-area-inset-right)); }
+  .bottom-item { font-size:11px; }
+}
+@media (max-width:699px) {
+  .main { padding:0 14px calc(110px + env(safe-area-inset-bottom)); }
+  .topbar { padding:calc(8px + env(safe-area-inset-top)) 0 9px; }
+  .edition { font-size:10px; }
+  .top-title { font-size:16px; }
+  h1 { font-size:27px; }
+  .hero { padding:19px 18px; }
+  .hero h1 { font-size:27px; }
+  .hero-actions { display:grid;grid-template-columns:1fr 1fr; }
+  .hero-actions .btn:first-child { grid-column:1 / -1; }
+  .hero-actions .btn { font-size:13px;padding:10px;min-height:44px; }
+  .grid4 { gap:7px; }
+  .metric { padding:12px 10px; }
+  .metric .value { font-size:25px; }
+  .metric .name { font-size:10px;line-height:1.2; }
+  .metric .hint { font-size:9px;margin-top:3px; }
+  .home-filter { flex:1;padding:9px 5px;font-size:12px; }
+  .topic-grid,.note-grid,.mistake-grid { grid-template-columns:1fr!important; }
+  .topic-card { padding:13px; }
+  .topic-card .topic-label { font-size:13px; }
+  .topic-card .topic-sub { font-size:11px; }
+  .topic-card .topic-open-actions { flex-direction:column;align-items:stretch; }
+  .topic-open-actions .mini-test-link,.topic-card .topic-open { min-height:40px;padding:6px 9px; }
+  .topic-card .topic-progress { margin-top:7px; }
+  .variant-grid { grid-template-columns:repeat(2,minmax(0,1fr))!important;gap:8px; }
+  .variant-choice { padding:11px 12px; }
+  .variant-choice .variant-number { font-size:18px; }
+  .variant-choice .variant-title { font-size:12px;line-height:1.35; }
+  .variant-choice .chip { font-size:9px;padding:4px 7px; }
+  .random-toolbar { display:grid;grid-template-columns:1fr 1fr;gap:8px; }
+  .random-toolbar>div:first-child { grid-column:1 / -1;min-width:0; }
+  .random-toolbar .field { min-width:0;max-width:none; }
+  .random-toolbar #startTest { padding:8px;font-size:12px; }
+  .toolbar-row { display:grid;grid-template-columns:1fr 1fr;gap:9px; }
+  #view-practice .toolbar-row .field { min-width:0; }
+  .toolbar-row .field.wide { min-width:0; }
+  #view-test .toolbar-row { display:block; }
+  .toolbar { padding:12px; }
+  .q-card { padding:18px 15px; }
+  .q-text { font-size:19px;line-height:1.47; }
+  .answer { font-size:15px;min-height:56px;padding:13px 11px; }
+  .q-context .chip-neutral { max-width:56vw; }
+  #practiceActions { display:grid;grid-template-columns:1fr auto;gap:7px;align-items:center;padding:9px 0; }
+  #practiceActions .action-inline { flex-direction:column;align-items:stretch;gap:4px; }
+  #practiceActions .action-inline .btn { min-height:36px;padding:5px 10px; }
+  #practiceActions #practiceNext { min-width:139px;min-height:50px; }
+  .test-step-actions .btn { min-height:50px; }
+  .exam-palette { grid-template-columns:repeat(7,minmax(0,1fr)); }
+  .exam-jump { min-height:40px; }
+  #examWorkspace .sticky-actions { display:flex;flex-wrap:wrap;gap:8px;padding:8px 0; }
+  #examWorkspace .sticky-actions .action-inline { flex:1 1 auto; }
+  #examWorkspace .sticky-actions .btn { flex:1;min-width:0;padding:9px 8px;font-size:12px; }
+  #examWorkspace .sticky-actions .action-inline:last-child .btn:last-child { flex:0 0 auto; }
+  .result { padding:15px; }
+  .result .big-score { font-size:33px; }
+  .results-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .footer { font-size:10px; }
+  .toast { font-size:12px; }
+  .bottom-nav { padding-left:max(5px,env(safe-area-inset-left));padding-right:max(5px,env(safe-area-inset-right)); }
+  .bottom-item { font-size:10px; }
+}
+@media (max-width:355px) { .metric .name { font-size:9px; } .edition { display:none; } .topic-card .topic-open-actions { flex-direction:column; } }
+@media (orientation:landscape) and (max-width:1193px) and (max-height:470px) { .bottom-nav{padding:2px 10vw 2px}.bottom-item{min-height:43px;flex-direction:row;gap:6px}.bottom-item svg{width:18px;height:18px}.main{padding-bottom:75px} }
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+@media print {.bottom-nav{display:none!important}.main{padding-bottom:0!important}}
+
+</style>
 </head>
 <body>
 <div class="app">
 <aside class="sidebar" id="sidebar" aria-label="Navegación de estudio">
   <a class="brand" href="#inicio"><span class="brand-icon">C2</span><span><strong>Aula UNED</strong><small>Oposiciones · edición 2026</small></span></a>
-  <div class="side-cap">Espacio de preparación</div>
+  <div class="side-cap">ESTUDIO</div>
   <nav aria-label="Navegación principal">
-    <button class="nav-btn active" data-view="home"><span class="nav-icon">⌂</span> Inicio y progreso</button>
-    <button class="nav-btn" data-view="practice"><span class="nav-icon">▤</span> Preguntas por tema</button>
-    <button class="nav-btn" data-view="test"><span class="nav-icon">☑</span> Tests completos</button>
-    <button class="nav-btn" data-view="exam"><span class="nav-icon">◷</span> Simulacro 65 min</button>
-    <button class="nav-btn" data-view="errors"><span class="nav-icon">✎</span> Cuaderno de fallos</button>
+    <button class="nav-btn active" data-view="home"><span class="nav-icon">⌂</span> Inicio</button>
+    <button class="nav-btn" data-view="practice"><span class="nav-icon">▤</span> Practicar</button>
+    <button class="nav-btn" data-view="test"><span class="nav-icon">☑</span> Tests</button>
+    <button class="nav-btn" data-view="exam"><span class="nav-icon">◷</span> Simulacro</button>
+    <button class="nav-btn" data-view="errors"><span class="nav-icon">✎</span> Fallos</button>
   </nav>
-  <div class="side-cap">Bloque I · Común</div><div id="sideB1"></div>
-  <div class="side-cap">Bloque II · UNED</div><div id="sideB2"></div>
-  <div class="sidebar-bottom"><b>Edición ampliada · 09.10.2026</b>Preguntas tomadas de los ejercicios de los temarios actualizados. Sin afirmaciones falsas creadas automáticamente. Para literalidad jurídica prevalece la norma oficial.</div>
+  <details class="side-section"><summary>Bloque I · Común</summary><div id="sideB1"></div></details>
+  <details class="side-section"><summary>Bloque II · UNED</summary><div id="sideB2"></div></details>
+  <div class="sidebar-bottom">Material no oficial · 09/10/2026</div>
 </aside>
 <main class="main" id="main">
-<header class="topbar"><div style="display:flex;align-items:center;gap:10px"><button type="button" id="menuButton" class="mobile-menu" aria-label="Abrir menú" aria-expanded="false">☰</button><div class="breadcrumb" id="breadcrumb">AULA DE PREPARACIÓN / INICIO</div></div><div class="top-meta"><span class="edition">● Actualizado 09 · 10 · 2026</span><button type="button" class="btn btn-ghost btn-small" id="exportTop">Exportar progreso</button></div></header>
+<header class="topbar">
+  <div class="topbar-left"><span class="top-logo" aria-hidden="true">C2</span><span class="top-title" id="breadcrumb">Inicio</span></div>
+  <div class="top-meta"><span class="edition">09 · 10 · 2026</span><button type="button" class="top-export" id="exportTop" aria-label="Descargar copia del progreso" title="Descargar progreso">↓</button></div>
+  <button type="button" id="menuButton" class="mobile-menu" aria-label="Abrir menú" aria-expanded="false" hidden>☰</button>
+</header>
 
 <section class="view" id="view-home">
- <div class="hero"><div class="eyebrow">Centro de estudio · Auxiliar UNED C2</div><h1>Prepara cada pregunta con seguridad.</h1><p>892 preguntas de contenido y 116 asociaciones opcionales. Entre 4 y 5 tests distintos por cada tema. Aprende por materias, refuerza errores y realiza simulacros de 60 preguntas + 5 de reserva.</p><div class="hero-actions"><button class="btn btn-gold" data-go="practice">Empezar a estudiar →</button><button class="btn btn-light" data-go="test">Elegir entre 89 tests</button><button class="btn btn-light" data-go="exam">Preparar simulacro</button></div></div>
- <div class="audit-notice"><strong>Revisión jurídica 09/10/2026</strong><p>Cada pregunta enlaza ahora a su norma de referencia. Se han contrastado individualmente puntos de especial riesgo y se señalan reformas pendientes o datos históricos. Un enlace a una norma no certifica, por sí solo, la literalidad de todas las preguntas: ante dudas prevalece la fuente oficial.</p></div>
+ <div class="hero"><div class="eyebrow">TU AULA DE ESTUDIO</div><h1>Estudia a tu ritmo.</h1><div class="hero-actions"><button class="btn btn-gold" data-go="practice">Practicar preguntas →</button><button class="btn btn-light" data-go="test">Elegir test</button><button class="btn btn-light" data-go="exam">Simulacro</button></div></div>
  <div class="grid4" id="homeMetrics"></div>
- <div class="section-heading"><div><h2>Temas del programa</h2><p>Elige uno para practicar con explicaciones y fuente.</p></div><span class="hint">4 comunes + 16 UNED</span></div><div class="topic-grid" id="homeTopics"></div>
- <div class="section-heading"><div><h2>Correcciones normativas importantes</h2><p>Puntos en los que el banco antiguo contenía referencias obsoletas.</p></div></div><div class="note-grid" id="normNotes"></div>
+ <div class="section-heading"><div><h2>Elegir tema</h2></div><span class="hint">20 temas</span></div>
+ <div class="home-filters" role="group" aria-label="Filtrar temas"><button type="button" class="home-filter" data-home-block="b1" aria-pressed="false">Bloque I · Común</button><button type="button" class="home-filter active" data-home-block="b2" aria-pressed="true">Bloque II · UNED</button></div>
+ <div class="topic-grid" id="homeTopics"></div>
+ <details class="more-info"><summary>Avisos normativos y revisión jurídica</summary><p class="legal-note">Banco revisado a 09/10/2026. Las fuentes oficiales prevalecen; no se ha certificado individualmente la literalidad jurídica de todas las preguntas.</p><div class="note-grid" id="normNotes"></div></details>
 </section>
 
 <section class="view" id="view-practice" hidden>
- <div class="eyebrow">Entrenamiento guiado</div><h1>Preguntas por tema</h1><p class="lead">Contesta y consulta la explicación inmediatamente. Las preguntas falladas pasarán automáticamente al cuaderno de repaso.</p>
- <div class="toolbar"><div class="toolbar-row"><div class="field wide"><label for="practiceTopic">Tema</label><select id="practiceTopic"></select></div><div class="field"><label for="practiceStrategy">Orden</label><select id="practiceStrategy"><option value="random">Aleatorio</option><option value="ordered">Orden del temario</option><option value="unseen">Solo preguntas no practicadas</option><option value="associations">Solo asociaciones de memoria</option><option value="errors">Solo preguntas falladas</option><option value="bookmarks">Preguntas marcadas</option></select></div><div class="field wide"><label for="practiceSearch">Buscar por concepto o artículo</label><input id="practiceSearch" type="search" placeholder="Ej.: RECECAM, artículo 244, 70 años"></div></div><p class="mini-help" id="practiceCount"></p></div>
- <div id="practiceStage"></div><div class="action-line" id="practiceActions"><div class="action-inline"><button type="button" class="btn btn-ghost btn-small" id="practiceBookmark">☆ Guardar para repaso</button><button type="button" class="btn btn-ghost btn-small" id="practiceShuffle">Mezclar preguntas</button></div><button type="button" class="btn btn-primary" id="practiceNext">Siguiente pregunta →</button></div>
+ <h1>Practicar</h1><p class="lead">Responde y aprende con cada explicación.</p>
+ <div class="toolbar"><div class="toolbar-row"><div class="field wide"><label for="practiceTopic">Tema</label><select id="practiceTopic"></select></div><div class="field"><label for="practiceStrategy">Orden</label><select id="practiceStrategy"><option value="random">Aleatorio</option><option value="ordered">Orden del temario</option><option value="unseen">Solo preguntas no practicadas</option><option value="associations">Solo asociaciones de memoria</option><option value="errors">Solo preguntas falladas</option><option value="bookmarks">Preguntas marcadas</option></select></div></div><details class="search-details"><summary>Buscar por artículo o concepto</summary><label class="sr-only" for="practiceSearch">Buscar por concepto o artículo</label><input id="practiceSearch" type="search" placeholder="Artículo, plazo, órgano..."></details><p class="mini-help" id="practiceCount"></p></div>
+ <div id="practiceStage"></div><div class="action-line" id="practiceActions"><div class="action-inline"><button type="button" class="btn btn-ghost btn-small" id="practiceBookmark">☆ Guardar</button><button type="button" class="btn btn-ghost btn-small" id="practiceShuffle">Mezclar</button></div><button type="button" class="btn btn-primary" id="practiceNext">Siguiente →</button></div>
 </section>
 
 <section class="view" id="view-test" hidden>
- <div class="eyebrow">Autoevaluaci&oacute;n por materias</div><h1>4 o 5 tests por tema</h1>
- <p class="lead">Todos los temas disponen de 4 o 5 tests de 10 preguntas diferentes. Se priorizan artículos, competencias, excepciones, porcentajes y plazos. Las asociaciones quedan aparte como repaso opcional. Corrección al finalizar.</p>
- <div class="toolbar"><div class="toolbar-row"><div class="field wide"><label for="testTopic">Selecciona un tema</label><select id="testTopic"></select></div></div><p class="mini-help">Todas las variantes de un tema usan preguntas distintas y se reparten la normativa. Las preguntas de asociación no entran en los tests fijos.</p></div>
+ <h1>Tests por tema</h1><p class="lead">Elige una variante. Corrección al finalizar.</p>
+ <div class="toolbar"><div class="toolbar-row"><div class="field wide"><label for="testTopic">Tema</label><select id="testTopic"></select></div></div></div>
  <div class="variant-grid" id="testVariants" aria-label="Variantes disponibles"></div>
- <details class="coverage-map" id="coverageMap"><summary>Ver apartados normativos adicionales que se practican en este tema</summary><div class="coverage-map-items" id="coverageAreas"></div><p>Mapa orientativo de las nuevas preguntas. No sustituye la lectura del temario ni implica cobertura íntegra de todas las normas.</p></details>
- <div class="random-toolbar"><div><b>Entrenamiento aleatorio adicional</b><div class="mini-help">Mezcla las preguntas de contenido de este tema. Las asociaciones se practican aparte en «Preguntas por tema».</div></div><div class="field"><label for="testAmount">Preguntas</label><select id="testAmount"><option value="10">10 preguntas</option><option value="20">20 preguntas</option><option value="all">Todas las preguntas de contenido</option></select></div><button class="btn btn-ghost" id="startTest" type="button">Generar test aleatorio</button></div>
+ <details class="coverage-map" id="coverageMap"><summary>Temario que se practica</summary><div class="coverage-map-items" id="coverageAreas"></div><p>Mapa orientativo de las nuevas preguntas. No sustituye la lectura del temario ni implica cobertura íntegra de todas las normas.</p></details>
+ <div class="random-toolbar"><div><b>Test aleatorio</b></div><div class="field"><label for="testAmount">Preguntas</label><select id="testAmount"><option value="10">10 preguntas</option><option value="20">20 preguntas</option><option value="all">Todas las preguntas de contenido</option></select></div><button class="btn btn-ghost" id="startTest" type="button">Comenzar aleatorio</button></div>
  <div id="testWorkspace"><div class="empty"><b>Elige tu variante</b>Elige uno de los tests del tema para comenzar.</div></div>
 </section>
 
 <section class="view" id="view-exam" hidden>
- <div class="eyebrow">Examen de entrenamiento · convocatoria 2026</div><h1>Simulacro cronometrado</h1><p class="lead">Distribución del primer ejercicio: 12 preguntas del Bloque I, 48 del Bloque II y 5 adicionales de reserva. Las reservas no se suman salvo que sustituyan una pregunta anulada.</p>
+ <h1>Simulacro</h1><p class="lead">65 min · 60 preguntas + 5 de reserva.</p>
  <div id="examWorkspace"></div>
 </section>
 
 <section class="view" id="view-errors" hidden>
- <div class="eyebrow">Repaso inteligente</div><h1>Cuaderno de fallos</h1><p class="lead">Cada respuesta incorrecta se guarda para volver a intentarla. Al acertarla en el entrenamiento, saldrá de la lista de pendientes.</p>
- <div class="toolbar"><div class="toolbar-row"><button type="button" class="btn btn-primary" id="studyErrors">Practicar falladas</button><button type="button" class="btn btn-ghost" id="exportErrors">Exportar progreso (.json)</button><button type="button" class="btn btn-ghost" id="importErrors">Importar progreso</button><input type="file" accept="application/json,.json" id="importFile" hidden><button type="button" class="btn btn-danger" id="resetProgress">Borrar progreso</button></div><p class="mini-help">Los datos se guardan únicamente en este navegador. Si borras sus datos, puedes perder las estadísticas.</p></div>
+ <h1>Repasar fallos</h1><p class="lead">Repite las preguntas hasta acertarlas.</p>
+ <div class="toolbar"><div class="toolbar-row"><button type="button" class="btn btn-primary" id="studyErrors">Practicar falladas</button><button type="button" class="btn btn-ghost" id="exportErrors">Exportar copia</button><button type="button" class="btn btn-ghost" id="importErrors">Importar copia</button><input type="file" accept="application/json,.json" id="importFile" hidden></div><details class="danger-zone"><summary>Opciones avanzadas</summary><button type="button" class="btn btn-danger" id="resetProgress">Borrar progreso</button></details><p class="mini-help">El progreso se guarda en este navegador. Exporta una copia periódicamente.</p></div>
  <div id="mistakeWorkspace"></div>
 </section>
 
-<footer class="footer">Material de preparación no oficial · Banco de preguntas ampliado a <b>9 de octubre de 2026</b> desde temarios revisados el 8 de octubre. Para preguntas de literalidad jurídica, consulta siempre la norma oficial. Esta aplicación funciona sin Internet y no envía respuestas a servidores. Las bases de la convocatoria determinan el sistema real de calificación.</footer>
+<footer class="footer">Material no oficial · Revisión 09/10/2026. Consulta la norma oficial ante dudas. Sin conexión y sin envío de respuestas.</footer>
 </main></div>
+<nav class="bottom-nav" aria-label="Navegación principal">
+ <button type="button" data-view="home" class="bottom-item active" aria-label="Inicio"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5V21h-6v-7H9v7H3z"/></svg><span>Inicio</span></button>
+ <button type="button" data-view="practice" class="bottom-item" aria-label="Practicar"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 6c-3-2-6-2-9-1v14c3-1 6-1 9 1 3-2 6-2 9-1V5c-3-1-6-1-9 1zm0 0v14"/></svg><span>Practicar</span></button>
+ <button type="button" data-view="test" class="bottom-item" aria-label="Tests"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="m8 12 2.5 2.5L16 9"/></svg><span>Tests</span></button>
+ <button type="button" data-view="exam" class="bottom-item" aria-label="Simulacro"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6"/></svg><span>Examen</span></button>
+ <button type="button" data-view="errors" class="bottom-item" aria-label="Fallos"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m9 7-4 5 4 5M15 7l4 5-4 5M3 3l18 18"/></svg><span>Fallos</span></button>
+</nav>
 <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
 <script>
 "use strict";
@@ -234,8 +466,8 @@ function setView(name){
  view=name;
  document.querySelectorAll('.view').forEach(n=>{n.hidden=n.id!=='view-'+name;});
  document.querySelectorAll('[data-view]').forEach(n=>{n.classList.toggle('active',n.dataset.view===name);});
- const titles={home:'INICIO',practice:'PREGUNTAS POR TEMA',test:'TESTS COMPLETOS',exam:'SIMULACRO',errors:'CUADERNO DE FALLOS'};
- $('breadcrumb').textContent='AULA DE PREPARACIÓN / '+titles[name];
+
+ $('breadcrumb').textContent={home:'Inicio',practice:'Practicar',test:'Tests',exam:'Simulacro',errors:'Fallos'}[name];
  if(name==='home')renderHome();
  if(name==='errors')renderErrors();
  if(name==='exam')renderExam();
@@ -257,6 +489,7 @@ function buildSide(){
  }
  fill('sideB1',B1);fill('sideB2',B2);
 }
+let homeBlock="b2";
 const UPDATES=[
  {title:'Estatutos UNED 2026',desc:'RD 181/2026. Rectorado: requisitos nuevos; órganos de Facultad/Escuela y estructura universitaria actualizados.',url:'https://www.boe.es/buscar/act.php?id=BOE-A-2026-5715'},
  {title:'RECECAM · julio de 2026',desc:'El Reglamento Marco sustituye los anteriores ROF de centros. Base electa del Claustro: 9 tutores, 6 estudiantes y 2 PTGAS, con ampliaciones reguladas.',url:META.b2t10.url},
@@ -268,23 +501,28 @@ const UPDATES=[
 function renderHome(){
  const s=statsFor(DIRECT),attempts=s.ok+s.wrong;
  const doneTests=Object.keys(state.testHistory||{}).length;
- const blocks=[[DIRECT.length,'Preguntas normativas',`${ALL.length-DIRECT.length} asociaciones adicionales`],[FIXED_TESTS,'Tests sin repeticiones',`${doneTests} evaluaciones registradas · 4 o 5 por tema`],[s.attempted,'Diferentes practicadas',`${Math.round(100*s.attempted/DIRECT.length)} % de las preguntas de contenido`],[state.mistakes.length,'Preguntas por repasar','Cuaderno de errores']];
+ const blocks=[[s.attempted,'Practicadas',`${Math.round(100*s.attempted/DIRECT.length)} % del banco`],[state.mistakes.length,'Por repasar','Fallos pendientes'],[doneTests,'Tests hechos',`${FIXED_TESTS} disponibles`]];
  $('homeMetrics').replaceChildren();blocks.forEach(([v,l,sub])=>{
   const card=elt('div','metric');addChildren(card,elt('span','value',v),elt('span','name',l),elt('div','hint',sub));$('homeMetrics').appendChild(card);
  });
  $('homeTopics').replaceChildren();TOPIC_KEYS.forEach(k=>{
   const qs=BANK[k].filter(q=>q.kind!=='asociacion');const st=statsFor(qs);const card=elt('div','topic-card');const main=elt('div','');main.style.flex='1';
-  addChildren(main,elt('div','topic-label',`T${k.split('t')[1]} · ${topicName(k)}`),elt('div','topic-sub',`${META[k].group} · ${qs.length} de contenido · ${VARIANTS[k].length} tests · ${st.attempted} practicadas`));
+  addChildren(main,elt('div','topic-label',`T${k.split('t')[1]} · ${topicName(k)}`),elt('div','topic-sub',`${st.attempted}/${qs.length} vistas · ${VARIANTS[k].length} tests`));
   const progress=elt('div','topic-progress');const bar=elt('span');bar.style.width=Math.round(100*st.attempted/qs.length)+'%';progress.appendChild(bar);main.appendChild(progress);
-  const actions=elt('div','topic-open-actions');
-  const tests=button(VARIANTS[k].length+' tests','mini-test-link',()=>openTopicTests(k));tests.setAttribute('aria-label','Ver los tests de '+topicName(k));
-  const open=button('\u2192','topic-open',()=>startPracticeTopic(k));open.setAttribute('aria-label','Practicar '+topicName(k));
+  card.dataset.group=k.startsWith('b1')?'b1':'b2';const actions=elt('div','topic-open-actions');
+  const tests=button('Tests','mini-test-link',()=>openTopicTests(k));tests.setAttribute('aria-label','Ver los tests de '+topicName(k));
+  const open=button('Practicar','topic-open',()=>startPracticeTopic(k));open.setAttribute('aria-label','Practicar '+topicName(k));
   addChildren(actions,tests,open);addChildren(card,main,actions);$('homeTopics').appendChild(card);
  });
+ filterHomeTopics();
  $('normNotes').replaceChildren();UPDATES.forEach(n=>{
   const card=elt('div','note');addChildren(card,elt('b','',n.title),elt('p','',n.desc));
   const a=elt('a','', 'Consultar referencia oficial ↗');a.href=n.url;a.target='_blank';a.rel='noopener noreferrer';card.appendChild(a);$('normNotes').appendChild(card);
  });
+}
+function filterHomeTopics(){
+ document.querySelectorAll('[data-home-block]').forEach(b=>{const active=b.dataset.homeBlock===homeBlock;b.classList.toggle('active',active);b.setAttribute('aria-pressed',String(active));});
+ document.querySelectorAll('#homeTopics .topic-card').forEach(card=>{card.hidden=card.dataset.group!==homeBlock;});
 }
 function topicSelectOptions(sel,all=false){
  sel.replaceChildren();if(all){const o=elt('option','',`Todos los temas · ${DIRECT.length} preguntas de contenido`);o.value='all';sel.appendChild(o);}
@@ -352,7 +590,7 @@ function makePracticeQueue(){
 function currentPractice(){return LOOKUP.get(practice.queue[practice.idx]);}
 function renderPractice(){
  if(view!=='practice')return;
- $('practiceCount').textContent=`${practice.queue.length} preguntas disponibles con estos filtros. Respuesta y explicación inmediata.`;
+ $('practiceCount').textContent=`${practice.queue.length} preguntas disponibles`;
  const stage=$('practiceStage');stage.replaceChildren();
  const q=currentPractice();$('practiceActions').hidden=!q;
  if(!q){stage.appendChild(elt('div','empty','No hay preguntas con esos filtros. Prueba con otro tema u orden de práctica.'));return;}
@@ -362,8 +600,8 @@ function renderPractice(){
   practice.choice=i;updateStats(q.id,i===q.answer);renderPractice();
  }});
  stage.appendChild(card);
- const marked=state.bookmarks.includes(q.id);$('practiceBookmark').textContent=marked?'★ Quitar marca':'☆ Marcar para repaso';
- $('practiceNext').textContent=practice.idx===practice.queue.length-1?'Repetir recorrido ↻':'Siguiente pregunta →';
+ const marked=state.bookmarks.includes(q.id);$('practiceBookmark').textContent=marked?'★ Guardada':'☆ Guardar';
+ $('practiceNext').textContent=practice.idx===practice.queue.length-1?'Repetir ↻':'Siguiente →';
 }
 function answerPracticeIndex(i){const q=currentPractice();if(!q||practice.choice!==null)return;practice.choice=i;updateStats(q.id,i===q.answer);renderPractice();}
 function nextPractice(){
@@ -403,8 +641,8 @@ function renderTestVariantCards(){
   btn.setAttribute('aria-label',`Empezar Test ${idx+1} de ${topicName(topic)}`);
   const head=elt('div','variant-top');
   addChildren(head,elt('span','variant-number',`0${idx+1}`),elt('span','chip chip-neutral','10 preguntas'));
-  const status=history?`Realizado ${history.attempts} vez/veces · mejor ${history.best.toFixed(2)} / 10`:'Pendiente de realizar';
-  addChildren(btn,head,elt('span','variant-title',`Test ${idx+1} · ${subtitles[idx]}`),elt('span','variant-sub','Diez preguntas que no se repiten en los demás tests fijos de este tema.'),elt('span','variant-status'+(history?' done':''),status));
+
+  addChildren(btn,head,elt('span','variant-title',`Test ${idx+1} · ${subtitles[idx]}`),elt('span','variant-status'+(history?' done':''),history?`Mejor: ${history.best.toFixed(2)} / 10`:'Sin hacer')); 
   wrap.appendChild(btn);
  }
  renderCoverageAreas(topic);
@@ -429,34 +667,46 @@ function startTest(mode='random'){
   const n=requested==='all'?pool.length:Math.min(pool.length,Number(requested));
   selected=pool.slice(0,n);
  }
- activeTest={topic,variant:Number.isInteger(mode)?mode:null,items:selected.map(pack),finished:false};
+ activeTest={topic,variant:Number.isInteger(mode)?mode:null,items:selected.map(pack),finished:false,activeIndex:0};activeTestIndex=0;
  state.testDraft=clone(activeTest);save();
  renderTestVariantCards();renderTest();
- toast(`${selected.length} preguntas preparadas.`);
+ toast(`Test de ${selected.length} preguntas`);
  document.querySelector('#testWorkspace')?.scrollIntoView({block:'start',behavior:'smooth'});
 }
 function testNumbers(){const n=activeTest.items.length;const a=activeTest.items.filter(e=>e.choice!==null).length;return `${a} de ${n} respondidas`;}
+let activeTestIndex=0;
 function renderTest(){
  const root=$('testWorkspace');root.replaceChildren();
- if(!activeTest || activeTest.topic!==$('testTopic').value){root.appendChild(elt('div','empty','Selecciona uno de los tests fijos o genera un repaso aleatorio.'));return;}
+ $('view-test').classList.toggle('test-in-progress',!!activeTest&&!activeTest.finished&&activeTest.topic===$('testTopic').value);
+ if(!activeTest || activeTest.topic!==$('testTopic').value){root.appendChild(elt('div','empty','Elige un test para comenzar.'));return;}
  if(activeTest.finished){renderTestResults();return;}
- const bar=elt('div','sticky-actions');
- addChildren(bar,elt('strong','',`T${activeTest.topic.split('t')[1]} · ${topicName(activeTest.topic)} · ${activeTest.variant===null?'Aleatorio':`Test ${activeTest.variant+1}`}`),elt('span','hint',testNumbers()));
- root.appendChild(bar);
- const list=elt('div','test-list');activeTest.items.forEach((en,i)=>{
-  const q=LOOKUP.get(en.id);
-  const card=makeQuestion(q,en.order,{compact:true,count:`Pregunta ${i+1} / ${activeTest.items.length}`,choice:en.choice,onPick:j=>{
-   en.choice=j;
-   const cardEl=list.children[i];cardEl.querySelectorAll('.answer').forEach((btn,idx)=>{
-    btn.classList.toggle('selected',idx===j);btn.setAttribute('aria-pressed',idx===j?'true':'false');
-   });bar.querySelector('.hint').textContent=testNumbers();
-   state.testDraft=clone(activeTest);save();
-  }});
-  list.appendChild(card);
- });
- root.appendChild(list);
- const tools=elt('div','action-line');addChildren(tools,elt('span','hint','+1 acierto · −1/3 fallo · 0 en blanco'),button('Finalizar y corregir test','btn btn-primary',finishTest));root.appendChild(tools);
+ const items=activeTest.items,n=items.length;
+ activeTestIndex=Math.max(0,Math.min(n-1,activeTestIndex));
+ const answered=items.filter(e=>e.choice!==null).length;
+ root.appendChild(button('‹ Elegir otro test','switch-test',()=>{$('view-test').classList.remove('test-in-progress');$('testVariants').scrollIntoView({block:'start',behavior:'auto'});}));
+ const panel=elt('div','test-step');panel.appendChild(elt('strong','',`Pregunta ${activeTestIndex+1} de ${n}`));
+ const count=elt('span','hint',`${answered} respondidas`);panel.appendChild(count);root.appendChild(panel);
+ const progress=elt('div','progress-track test-track');const line=elt('span');line.style.width=`${Math.round(100*answered/n)}%`;progress.appendChild(line);root.appendChild(progress);
+ const palette=elt('div','test-palette');palette.setAttribute('aria-label','Ir a otra pregunta');
+ items.forEach((en,i)=>{const b=button(String(i+1),'test-jump'+(i===activeTestIndex?' current':'')+(en.choice!==null?' answered':''),()=>goTestIndex(i));b.setAttribute('aria-label',`Pregunta ${i+1}${en.choice===null?', sin respuesta':', respondida'}`);palette.appendChild(b);});root.appendChild(palette);
+ const en=items[activeTestIndex],q=LOOKUP.get(en.id);
+ const card=makeQuestion(q,en.order,{compact:false,count:`${activeTestIndex+1}/${n}`,choice:en.choice,onPick:j=>{
+  en.choice=j;state.testDraft=clone(activeTest);save();
+  card.querySelectorAll('.answer').forEach((btn,idx)=>{btn.classList.toggle('selected',idx===j);btn.setAttribute('aria-pressed',idx===j?'true':'false');});
+  palette.querySelectorAll('.test-jump').forEach((btn,i)=>btn.classList.toggle('answered',items[i].choice!==null));
+  count.textContent=`${items.filter(e=>e.choice!==null).length} respondidas`;
+  line.style.width=`${Math.round(100*items.filter(e=>e.choice!==null).length/n)}%`;
+ }});
+ root.appendChild(card);
+ if(en.choice!==null){root.appendChild(button('Dejar sin responder','clear-choice',()=>{en.choice=null;state.testDraft=clone(activeTest);save();renderTest();}));}
+ const tools=elt('div','test-step-actions');
+ const previous=button('← Anterior','btn btn-ghost',()=>{if(activeTestIndex>0)goTestIndex(activeTestIndex-1);});previous.disabled=activeTestIndex===0;
+ const next=button(activeTestIndex===n-1?'Corregir test':'Siguiente →','btn btn-primary',()=>{if(activeTestIndex<n-1)goTestIndex(activeTestIndex+1);else finishTest();});
+ addChildren(tools,previous,next);root.appendChild(tools);
+ root.appendChild(button('Finalizar y corregir','test-finish-link',finishTest));
 }
+function jumpToTest(){document.getElementById('testWorkspace')?.scrollIntoView({block:'start',behavior:'auto'});}
+function goTestIndex(i){activeTestIndex=i;activeTest.activeIndex=i;state.testDraft=clone(activeTest);save();renderTest();jumpToTest();}
 function finishTest(){
  if(!activeTest||activeTest.finished)return;
  const pending=activeTest.items.filter(e=>e.choice===null).length;
@@ -498,7 +748,7 @@ function reviewList(items){
  });return list;
 }
 function renderTestResults(){
- const root=$('testWorkspace');root.replaceChildren();
+ $('view-test').classList.remove('test-in-progress');const root=$('testWorkspace');root.replaceChildren();
  const r=resultsOf(activeTest.items);root.appendChild(summaryCard(r,`TEST ${activeTest.variant===null?'ALEATORIO':activeTest.variant+1} · ${topicName(activeTest.topic)}`));
  const action=elt('div','action-line');
  if(activeTest.variant!==null&&activeTest.variant<VARIANTS[activeTest.topic].length-1){
@@ -538,31 +788,32 @@ function renderExam(){
  if(view!=='exam')return;
  const root=$('examWorkspace');root.replaceChildren();const ex=state.exam;
  if(!ex){
-  const intro=elt('div','exam-intro');addChildren(intro,elt('h2','','Estructura del primer ejercicio'),elt('p','lead','Una prueba cronometrada de 65 minutos con selección aleatoria de preguntas, tomadas de los veinte temas del banco.'));
-  const ul=elt('ul');['12 preguntas del Bloque I: 3 de cada tema común.','48 preguntas del Bloque II: 3 de cada uno de los 16 temas de la UNED.','5 preguntas de reserva diferenciadas y excluidas del cálculo de la nota ordinaria.','Puntuación: acierto +1; fallo −1/3; en blanco 0.','Puedes navegar, marcar dudas y reanudar el mismo simulacro en este navegador.'].forEach(x=>withText(ul,'li','',x));intro.appendChild(ul);intro.appendChild(button('Comenzar simulacro de 65 minutos →','btn btn-primary',startExam));root.appendChild(intro);return;
+  const intro=elt('div','exam-intro');addChildren(intro,elt('h2','','¿Empezamos?'),elt('p','lead','60 preguntas + 5 de reserva · 65 minutos. Las reservas no cuentan en la nota ordinaria.')); 
+  const ul=elt('ul');['Bloque I: 12 · Bloque II: 48','Acierto +1 · Fallo −1/3 · Blanco 0','Puedes pausar el estudio cerrando la página, pero el cronómetro seguirá corriendo.'].forEach(x=>withText(ul,'li','',x));intro.appendChild(ul);intro.appendChild(button('Empezar simulacro →','btn btn-primary',startExam));root.appendChild(intro);return;
  }
  if(ex.finished){renderExamResults();return;}
  const remaining=Math.max(0,Math.ceil((ex.endsAt-Date.now())/1000));
  const banner=elt('div','exam-banner');const info=elt('div','exam-stats');
- addChildren(info,elt('strong','','Simulacro en curso'),elt('div','',`${ex.items.filter(e=>e.choice!==null).length} de 65 respondidas · ${ex.items.filter(e=>e.flag).length} marcadas para revisión`));
+  addChildren(info,elt('strong','','Simulacro'),elt('div','',`${ex.items.filter(e=>e.choice!==null).length}/65 respondidas · ${ex.items.filter(e=>e.flag).length} dudas`));
  addChildren(banner,info,elt('div','exam-timer'+(remaining<=300?' urgent':''),fmtTime(remaining)));banner.lastChild.id='examTimer';root.appendChild(banner);
- const palette=elt('div','exam-palette');palette.setAttribute('aria-label','Navegación entre preguntas');
+  const nav=elt('details','exam-nav');const summary=elt('summary','',`Ver todas las preguntas · ir a otra`);nav.appendChild(summary);const palette=elt('div','exam-palette');palette.setAttribute('aria-label','Navegación entre preguntas');
  ex.items.forEach((e,i)=>{
   const b=button(String(i+1),'exam-jump'+(e.choice!==null?' answered':'')+(e.flag?' flagged':'')+(i===ex.active?' current':'')+(e.reserve?' reserve':''),()=>{ex.active=i;save();renderExam();});
   b.setAttribute('aria-label',`Pregunta ${i+1}${e.reserve?', reserva':''}${e.choice===null?', sin respuesta':', respondida'}`);palette.appendChild(b);
- });root.appendChild(palette);
+  });nav.appendChild(palette);root.appendChild(nav);
  const entry=ex.items[ex.active],q=LOOKUP.get(entry.id);
  root.appendChild(makeQuestion(q,entry.order,{count:`Pregunta ${ex.active+1} de 65`,reserve:entry.reserve,choice:entry.choice,onPick:i=>{entry.choice=i;save();renderExam();}}));
+ if(entry.choice!==null)root.appendChild(button('Dejar sin responder','clear-choice',()=>{entry.choice=null;save();renderExam();}));
  const foot=elt('div','sticky-actions');
  const left=elt('div','action-inline');
  left.appendChild(button('← Anterior','btn btn-ghost btn-small',()=>{if(ex.active>0){ex.active--;save();renderExam();}}));left.lastChild.disabled=ex.active===0;
- left.appendChild(button(entry.flag?'⚑ Desmarcar':'⚐ Marcar duda','btn btn-ghost btn-small',()=>{entry.flag=!entry.flag;save();renderExam();}));
+ left.appendChild(button(entry.flag?'★ Duda guardada':'☆ Marcar duda','btn btn-ghost btn-small',()=>{entry.flag=!entry.flag;save();renderExam();}));
  foot.appendChild(left);
  const right=elt('div','action-inline');
  right.appendChild(button('Siguiente →','btn btn-primary btn-small',()=>{if(ex.active<64){ex.active++;save();renderExam();}}));right.lastChild.disabled=ex.active===64;
- right.appendChild(button('Entregar examen','btn btn-danger btn-small',()=>finishExam(false)));
+ right.appendChild(button('Entregar','btn btn-danger btn-small',()=>finishExam(false)));
  foot.appendChild(right);root.appendChild(foot);
- withText(root,'p','hint','Reservas 61–65: se corrigen aparte y no aumentan la nota de las 60 preguntas ordinarias.');
+
 }
 function finishExam(expired=false){
  const ex=state.exam;if(!ex||ex.finished)return;
@@ -588,8 +839,8 @@ function renderErrors(){
  const box=$('mistakeWorkspace');box.replaceChildren();
  const pending=state.mistakes.filter(id=>LOOKUP.has(id));
  const marked=state.bookmarks.filter(id=>LOOKUP.has(id));
- const title=elt('div','section-heading');addChildren(title,elt('h2','',`${pending.length} fallos pendientes`),elt('span','hint',`${marked.length} preguntas marcadas`));box.appendChild(title);
- if(!pending.length){box.appendChild(elt('div','empty','No tienes preguntas pendientes. Practica, realiza tests y usa este apartado para reforzar las que falles.'));return;}
+ const title=elt('div','section-heading');addChildren(title,elt('h2','',`${pending.length} pendientes`),elt('span','hint',`${marked.length} guardadas`));box.appendChild(title);
+ if(!pending.length){box.appendChild(elt('div','empty','¡Bien! No tienes fallos pendientes.'));return;}
  const grid=elt('div','mistake-grid');
  pending.sort((a,b)=>(state.stats[b]?.wrong||0)-(state.stats[a]?.wrong||0));
  pending.forEach(id=>{
@@ -622,10 +873,11 @@ async function importProgress(file){
 /* ------------- Inicialización y eventos ------------- */
 function init(){
  if(TOPIC_KEYS.length!==20||ALL.length!==1008||DIRECT.length!==892||FIXED_TESTS!==89||TOPIC_KEYS.some(k=>VARIANTS[k].length<4||VARIANTS[k].some(test=>test.length!==10)||BANK[k].length<50))throw Error('Banco de preguntas incompleto.');
- if(state.testDraft&&state.testDraft.items?.every(e=>LOOKUP.has(e.id))&&(state.testDraft.variant===null||(Number.isInteger(state.testDraft.variant)&&VARIANTS[state.testDraft.topic]?.[state.testDraft.variant]?.every((id,i)=>id===state.testDraft.items[i].id)))){activeTest=state.testDraft;}else{state.testDraft=null;}
+ if(state.testDraft&&state.testDraft.items?.every(e=>LOOKUP.has(e.id))&&(state.testDraft.variant===null||(Number.isInteger(state.testDraft.variant)&&VARIANTS[state.testDraft.topic]?.[state.testDraft.variant]?.every((id,i)=>id===state.testDraft.items[i].id)))){activeTest=state.testDraft;activeTestIndex=Math.max(0,Math.min(activeTest.items.length-1,Number(activeTest.activeIndex)||0));}else{state.testDraft=null;}
  buildSide();topicSelectOptions($('practiceTopic'),true);topicSelectOptions($('testTopic'),false);$('testTopic').value=activeTest?.topic||'b1t1';
  document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
  document.querySelectorAll('[data-go]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.go)));
+ document.querySelectorAll('[data-home-block]').forEach(b=>b.addEventListener('click',()=>{homeBlock=b.dataset.homeBlock;filterHomeTopics();}));
  $('menuButton').addEventListener('click',()=>{const opened=$('sidebar').classList.toggle('open');$('menuButton').setAttribute('aria-expanded',String(opened));});
  $('practiceTopic').addEventListener('change',e=>{practice.topic=e.target.value;makePracticeQueue();});
  $('practiceStrategy').addEventListener('change',e=>{practice.strategy=e.target.value;makePracticeQueue();});
